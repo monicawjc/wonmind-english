@@ -10,11 +10,20 @@
   /* 右下角遮盖块：盖住平台注入的水印 */
   #wmCover{
     position:fixed;right:0;bottom:0;z-index:2147483647;
-    width:230px;height:70px;background:#fff;
-    border-radius:12px 0 0 0;
-    box-shadow:0 0 0 1px rgba(0,0,0,0.02);
+    width:230px;height:70px;
+    border-radius:16px 0 0 0;
+    /* 默认：白色实心（不支持毛玻璃的浏览器兜底） */
+    background:#fff;
   }
-  /* 手机端：遮盖块对准水印位置（right:12 bottom:12 的胶囊） */
+  /* 支持 backdrop-filter 的浏览器：改为毛玻璃，把水印模糊掉，适配任何背景色 */
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    #wmCover{
+      background:rgba(255,255,255,0.06);
+      -webkit-backdrop-filter:blur(18px) saturate(1.4);
+      backdrop-filter:blur(18px) saturate(1.4);
+    }
+  }
+  /* 手机端：对准水印位置 */
   @media (max-width:768px){ #wmCover{width:170px;height:60px} }
   /* 显隐切换按钮 */
   #wmToggle{
