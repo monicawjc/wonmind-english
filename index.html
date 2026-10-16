@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>WonMind English</title>
+<style>
+  html,body{margin:0;padding:0;height:100%;background:#fff;overflow:hidden}
+  iframe{width:100%;height:100%;border:0;display:block}
+  /* 右下角遮盖块：盖住平台注入的水印 */
+  #wmCover{
+    position:fixed;right:0;bottom:0;z-index:2147483647;
+    width:220px;height:56px;background:#fff;
+    border-radius:10px 0 0 0;
+    box-shadow:0 0 0 1px rgba(0,0,0,0.02);
+  }
+  /* 手机端水印更小，收窄遮盖块 */
+  @media (max-width:768px){ #wmCover{width:150px;height:42px} }
+  /* 显隐切换按钮 */
+  #wmToggle{
+    position:fixed;right:6px;bottom:6px;z-index:2147483647;
+    width:22px;height:22px;border-radius:50%;
+    background:rgba(0,0,0,0.06);color:#999;border:0;
+    font-size:12px;line-height:22px;text-align:center;cursor:pointer;
+  }
+  #wmToggle:hover{background:rgba(0,0,0,0.12)}
+</style>
+</head>
+<body>
+<iframe id="app" src="https://4kyqbxs3c64s0.doubaoapps.com/app/app_17g3ssqxu0a" allow="microphone; camera; autoplay"></iframe>
+<div id="wmCover"></div>
+<button id="wmToggle" title="显示/隐藏遮盖" onclick="var c=document.getElementById('wmCover');c.style.display=c.style.display==='none'?'block':'none'">•</button>
+<script>
+  // 若平台以后改了水印尺寸，可在此调整
+  // wmCover 默认遮住右下角 220x56（桌面）/ 150x42（手机）
+</script>
+</body>
+</html>
