@@ -10,12 +10,12 @@
   /* 右下角遮盖块：盖住平台注入的水印 */
   #wmCover{
     position:fixed;right:0;bottom:0;z-index:2147483647;
-    width:220px;height:56px;background:#fff;
-    border-radius:10px 0 0 0;
+    width:230px;height:70px;background:#fff;
+    border-radius:12px 0 0 0;
     box-shadow:0 0 0 1px rgba(0,0,0,0.02);
   }
-  /* 手机端水印更小，收窄遮盖块 */
-  @media (max-width:768px){ #wmCover{width:150px;height:42px} }
+  /* 手机端：遮盖块对准水印位置（right:12 bottom:12 的胶囊） */
+  @media (max-width:768px){ #wmCover{width:170px;height:60px} }
   /* 显隐切换按钮 */
   #wmToggle{
     position:fixed;right:6px;bottom:6px;z-index:2147483647;
